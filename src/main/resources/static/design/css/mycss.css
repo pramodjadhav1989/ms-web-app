@@ -1,0 +1,95 @@
+
+.stepContainer
+	{
+		
+	
+		width:85%;
+		margin:0% auto;
+		overflow: hidden;
+		position: relative;
+		min-height:636px;
+	}
+	
+#step-1{
+		
+		transition:all 0.5s;
+		position:relative;
+		left:0%;
+		width:100%;
+	
+	}
+	
+	
+#step-2{
+		
+		position:absolute;
+		transition:right 0.5s;
+		right:-100%;
+		width:100%;
+	}
+	
+#mainContainer{
+
+	width:650px;
+	margin: auto;
+	padding:10px;
+	background:#f2f2f2;
+	position: relative;
+	min-height:500px;
+	overflow:hidden;
+    
+
+}
+
+.btnContainer{
+
+	width:650px;
+	margin: auto;
+	padding:10px;
+	
+
+}
+
+.slide{
+	width:95%;
+	position:absolute;
+	transition:all 0.5s;
+	color:#333333;
+	font-size:15px;
+	right:-640px;
+
+}
+.ratingContainer{
+
+	padding:10px 0px;
+}
+.defaultRate{
+	background:url("http://sb.angelbackoffice.com:7777/images/deselect_star.png") no-repeat;
+	width:20px;
+	height:20px;
+    display: inline-block;
+	
+}
+
+.activeRate{
+	background:url("http://sb.angelbackoffice.com:7777/images/select_star.png") no-repeat;
+	width:20px;
+	height:20px;
+    display: inline-block;
+	
+}
+
+.btnDisable{
+    background: #96b5c1;
+    border: 0;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 16px;
+}
+.btnEnable{
+    background: #0083b7;
+    border: 0;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 16px;
+}

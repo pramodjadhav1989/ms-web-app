@@ -1,0 +1,395 @@
+
+<html >
+<head id="Head1" runat="server">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+   
+    <!-- Bootstrap 3.3.5 -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+
+    <link href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/bootstrap/css/bootstrap.min.css "rel="stylesheet" type="text/css" />
+    <!-- Font Awesome -->
+    <link  href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/bootstrap/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/dist/css/skins/_all-skins.min.css" type="text/css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/plugins/iCheck/flat/blue.css" type="text/css">
+
+
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
+        type="text/css">
+
+    <link rel="stylesheet" href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/css/style.css" />
+    <style type="text/css">
+        .glyphicon-refresh-animate {
+            -animation: spin .7s infinite linear;
+            -webkit-animation: spin2 .7s infinite linear;
+        }
+
+        .txtboxerrorborder {
+    border: 1px solid #dd4b39;
+}
+
+        @-webkit-keyframes spin2 {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: scale(1) rotate(0deg);
+            }
+
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+    </style>
+    <style type="text/css">
+        body, td, th {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+    
+    <style>
+    .error {
+        color: red;
+    }
+
+    .txtboxerrorborder {
+        border: 1px solid #dd4b39;
+    }
+</style>
+
+</head>
+
+<div id="top" data-magellan-expedition="fixed">
+    <div class="row">
+        <div class="large-12 columns">
+            <nav class="top-bar">
+                <ul class="title-area">
+
+                    <a href="#">
+                        <img src="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/img/logo.png" style="float: left;" alt=""></a>
+
+                </ul>
+
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<body class="skin-blue sidebar-mini" style="background-color: #efefef;">
+    <form id="form1" runat="server">
+        <div class="wrapper" style="background-color: #efefef">
+
+            <section class="content">
+                
+                <!-- Small boxes (Stat box) -->
+                <div class="row" style="background-color: #efefef">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="padding-top: 110px;">
+                        <div id="alert" style="display:none;" class="alert alert-success">
+                           
+                        </div>
+                        <div class="box box-primary" id="divslid1">
+                            <div class="box-header">
+                                Request Details&nbsp; : <lable id="lable" style="font:bold;font-weight: 700;"></lable>
+                            </div>
+
+                            <input type="hidden" id="sbcode" />
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="requestedby"> Requested By</label>
+                                    <input type="text"  class="form-control txt" disabled id="requestedby">
+                                </div>
+                                <div class="form-group">
+                                    <label for="requestedqty"> Requested Qty</label>
+                                    <input type="text"  class="form-control txt" disabled id="requestedqty">
+                                </div>
+                                <div class="form-group">
+                                    <label for="requestedon"> Requested On</label>
+                                    <input type="text" class="form-control txt" disabled id="requestedon">
+                                </div>
+                                <div class="form-group">
+                                    <label for="requesteddevice"> Requested Device Qty</label>
+                                    <input type="text" class="form-control txt" disabled id="requesteddevice">
+                                </div>
+                                <input type="hidden" id="hdndeicecode" />
+                                 <div class="form-group">
+                                    <label for="requesteddevice"> Assign Device Qty</label>
+                                    <input type="text" class="form-control txt" id="assigndevice">
+                                </div>
+
+
+
+
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer" style="text-align: center">
+
+                                <button type="button" id="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                            <div class="box-footer" style="text-align: center">
+                                <label id="lblClNotExist" class="error-label" style="color: #dd4b39; display: none; margin-top: 2%; margin-bottom: 0.2%;">* Please provide rating</label>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <!-- /.row -->
+                    <!-- Main row -->
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+    </form>
+
+
+    <footer>
+        <div class="row">
+            <p style="width: 100%; text-align: center; margin: auto; padding-bottom: 10px;">Copyright © whitelilly.com 2022 | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- jQuery 2.1.4 -->
+    <script src="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <link href="https://lloyd-mob-data.s3.ap-south-1.amazonaws.com/EmailTemplate/Design/css/mycss.css" rel="stylesheet" />
+    <!-- Slimscroll -->
+
+    <script type="text/javascript">
+
+
+
+
+
+
+        $(document).ready(function () {
+            
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+           load(url);
+
+                $("#assigndevice").keypress(function (e) {
+        var keyCode = e.keyCode || e.which;
+
+       $("#alert").empty();
+
+        //Regex for Valid Characters i.e. Alphabets and Numbers.
+        var regex = /^[0-9]+$/;
+
+        //Validate TextBox value against the Regex.
+        var isValid = regex.test(String.fromCharCode(keyCode));
+        if (!isValid) {
+           
+            $("#alert").css({ "display": "block" });
+                            $("#alert").removeClass();
+                            $("#alert").addClass("alert alert-danger");
+                            $("#alert").append("<strong>Error!</strong> Allow only numeric value");
+            
+        } 
+
+        return isValid;
+    });
+
+            $("#submit").click(function () {
+
+            if (validation() == false) {
+
+                return false;
+            }
+
+                $.ajax({
+                    url: "https://api.whitelilly.in/device/acceptRequest",
+                    type: "POST",
+
+                    data: JSON.stringify({ "code": '' + url + '', "deviceCode": $("#hdndeicecode").val(), "assignQty": $("#assigndevice").val()}),
+                    contentType: "application/json;",
+                    dataType: "json",
+                    success: function (obj) {
+
+                       
+
+                        if (obj.status == 'success') {
+                           // $("#lable").removeClass().text(obj.data.name + "(" + obj.data.userid + ")");
+
+
+                            $("#alert").empty();
+                            $("#alert").css({ "display": "block" });
+                            $("#alert").removeClass();
+                             $("#alert").addClass("alert alert-success");
+                            $("#alert").append("<strong>Success!</strong> " + obj.data);
+
+                            $("#password").val("");
+                            $("#confirmpwd").val("");
+                              clear();
+
+                        }
+                        else {
+                            $("#alert").empty();
+                            $("#alert").css({ "display": "block" });
+                            $("#alert").removeClass();
+                            $("#alert").addClass("alert alert-danger");
+                            $("#alert").append("<strong>Error!</strong> "+ obj.data);
+
+
+                          //  $("#submit").attr("disabled", "disabled");
+
+                          
+
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#alert").empty();
+                        $("#alert").css({ "display": "block" });
+                        $("#alert").removeClass();
+                        $("#alert").addClass("alert alert-danger");
+                        $("#alert").append("<strong>Error!</strong> Ssomething went wrong");
+
+                        return false;
+                    }
+                });
+            });
+
+           
+
+            
+
+        });
+
+ function validation() {
+
+            var flag = true;
+            $(".txt").each(function () {
+
+                var i = $(this);
+              
+                if ((i.val() == "") || (i.val() == "-1")) {
+                    i.removeAttr("class");
+                    i.attr("class", "form-control txt txtboxerrorborder");
+
+                    flag = false;
+                }
+            });
+
+            return flag;
+        }
+
+        function clear() {
+
+           
+            $(".txt").each(function () {
+
+                var i = $(this);
+                i.val("");
+            });
+
+            return flag;
+        }
+        
+        
+        $(".txt").click(function () {
+            $("#divmsg").hide();
+            var i = $(this);
+            i.removeAttr("class");
+            i.attr("class", "form-control txt");
+        });
+        function load(url) {
+            $.ajax({
+                url: "https://api.whitelilly.in/device/validateRequest",
+                type: "POST",
+
+                data: JSON.stringify({ "data": '' + url + '' }),
+                contentType: "application/json;",
+                dataType: "json",
+                success: function (obj) {
+
+                    // var obj = jQuery.parseJSON(result);
+
+                    //alert(obj);
+
+                    if (obj.status == 'success') {
+                       
+                        $("#requestedby").val(obj.data.name + "(" + obj.data.empcode + ")");
+                        $("#requestedqty").val(obj.data.requestqty );
+                        $("#requestedon").val(obj.data.requestedon );
+                        $("#requesteddevice").val(obj.data.devicecode  + "-" + obj.data.device);
+                        $("#assigndevice").val(obj.data.requestqty);
+                         $("#hdndeicecode").val(obj.data.devicecode );
+
+
+
+                        /* $("#alert").css({ "display": "block" });
+                         $("#alert").addClass("alert alert-success");
+                         $("#alert").append("<strong>Success!</strong> This alert box could indicate a successful or positive action.");*/
+
+                    }
+                    else {
+                        $("#alert").empty();
+                        $("#alert").css({ "display": "block" });
+                        $("#alert").removeClass();
+                        $("#alert").addClass("alert alert-danger");
+                        $("#alert").append("<strong>Error!</strong> Inavlid request .");
+
+
+                        $("#submit").attr("disabled", "disabled");
+
+
+
+                    }
+
+                },
+                error: function (err) {
+                    $("#alert").empty();
+                    $("#alert").css({ "display": "block" });
+                        $("#alert").removeClass();
+                        $("#alert").addClass("alert alert-danger");
+                    $("#alert").append("<strong>Error!</strong> Ssomething went wrong");
+
+                    return false;
+                }
+            });
+        } 
+
+
+</script>
+</body>
+</html>
+
