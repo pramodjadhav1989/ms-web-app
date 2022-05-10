@@ -196,7 +196,7 @@
             }
 
                 $.ajax({
-                    url: "https://api.whitelilly.in/forgetPassword/updatepassword",
+                    url: "http://api.d2c.lloydfamily.in/forgetPassword/updatepassword",
                     type: "POST",
 
                     data: JSON.stringify({ "id": '' + url + '', "password": $("#password").val(), "confirmpwd": $("#confirmpwd").val()}),
@@ -279,7 +279,7 @@
         });
         function load(url) {
             $.ajax({
-                url: "https://api.whitelilly.in/forgetPassword/validate",
+                url: "http://api.d2c.lloydfamily.in/forgetPassword/validate",
                 type: "POST",
 
                 data: JSON.stringify({ "data": '' + url + '' }),

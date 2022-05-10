@@ -236,7 +236,7 @@
             }
 
                 $.ajax({
-                    url: "https://api.whitelilly.in/device/acceptRequest",
+                    url: "http://api.d2c.lloydfamily.in/device/acceptRequest",
                     type: "POST",
 
                     data: JSON.stringify({ "code": '' + url + '', "deviceCode": $("#hdndeicecode").val(), "assignQty": $("#assigndevice").val()}),
@@ -333,7 +333,7 @@
         });
         function load(url) {
             $.ajax({
-                url: "https://api.whitelilly.in/device/validateRequest",
+                url: "http://api.d2c.lloydfamily.in/device/validateRequest",
                 type: "POST",
 
                 data: JSON.stringify({ "data": '' + url + '' }),
